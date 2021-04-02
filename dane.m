@@ -6,13 +6,13 @@
 % simulinka
 
 %% Dane silnika
-Pn=17; % [kW]
+Pn=17; % [kW] !!
 nn=1500; % [obr/min]
 Un=220; % [V]
 In=88; % [A]
 Js=0.275; % [kgm2]
 Rt=0.15; % [Ohm]
-Lt=18.75; % [mH]
+Lt=0.01875; % [H]
 omega_n=nn*2*pi/60;
 psi_en=(Un-Rt*In)/omega_n; % [Wb]
 Mn=psi_en*In; % [Nm]
