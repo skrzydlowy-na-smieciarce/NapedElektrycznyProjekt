@@ -23,10 +23,6 @@ GIU = syms2tf(GIUnum/Gden)
 GIMnum = vpa(1/psi_en, 3)
 GIM = syms2tf(GIMnum/Gden)
 
-%% Ograniczenia
-Imax = lambda*In;
-dIdtmax = p*In;
-omega_max = omega_n;
 
 %% Teraz te skoki jednostkowe
 % Chyba chodzi o GwU i GwI, a pochodna prądu to GwI*s (s to idealny  człon

@@ -19,6 +19,10 @@ Mn=psi_en*In; % [Nm]
 % przyjete dane
 lambda=2;
 p=50;
+% Ograniczenia
+Imax = lambda*In;
+dIdtmax = p*In;
+omega_max = omega_n;
 
 %% Regulatory ciągłe
 % założone dane
