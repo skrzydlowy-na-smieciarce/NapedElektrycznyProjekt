@@ -23,21 +23,38 @@ GIU = syms2tf(GIUnum/Gden)
 GIMnum = vpa(1/psi_en, 3)
 GIM = syms2tf(GIMnum/Gden)
 
+%% Ograniczenia
+Imax = lambda*In;
+dIdtmax = p*In;
+omega_max = omega_n;
+
 %% Teraz te skoki jednostkowe
 % Chyba chodzi o GwU i GwI, a pochodna prądu to GwI*s (s to idealny  człon
 % różniczkujący)
 
+% Uwaga: wyrażenia w latex'ie nie moga miec polskich znaków !!
+
+close all
+
 figure(1)
-step(GIU)
-title("Odpowiedz skokowa prądu");
+[y, t]=step(GIU*Un);
+plot(t, y, t, In.*ones(1, length(t)), t, Imax.*ones(1, length(t)));
+xlim([0, t(end)]);
+title('Prad twornika $I$', 'Interpreter','latex');
+legend('Prad twornika $I$', 'Prad znamionowy $I_N$', 'Ograniczenie pradu $I_{max}$','Interpreter','latex');
 
 figure(2)
 GIUderivate = syms2tf(GIUnum/Gden*s);
-step(GIUderivate)
-title("Odpowiedz skokowa pochodnej prądu");
+[y, t]=step(GIUderivate*Un);
+plot(t, y, t, dIdtmax.*ones(1, length(t)));
+xlim([0, t(end)]);
+title('Pochodna pradu $\frac{dI}{dt}$', 'Interpreter','latex');
+legend('Pochodna pradu $\frac{dI}{dt}$', 'Ograniczeni pochodnej pradu','Interpreter','latex');
 
 figure(3)
-step(GwU)
+[y, t]=step(GwU*Un); 
+plot(t, y, t, omega_max.*ones(1, length(t)));
+xlim([0, t(end)]);
 title("Odpowiedz skokowa prędkości obrotowej");
-
+legend("Prędkośc obrotowa \omega (t)", "Predkość znamionowa \omega_N");
 
