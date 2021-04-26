@@ -24,15 +24,21 @@ Imax = lambda*In;
 dIdtmax = p*In;
 omega_max = omega_n;
 
-%% Regulatory ciągłe
-% założone dane
+% założone dane do regulatora
 Y=10/(2.5*In);
 Kt=10/(1.2*omega_n);
 Kp=0.15*Un;
-J=6; %[kgm2]
+J=10*Js; %[kgm2]
+tau0=3.3*10^-3;
+
+%% Model silnika (transmitancje)
+% model_silnika
+
+%% Model przekształtnika tyrystorowego
+% ważne: allmargin()
+
+%% Regulatory 
 % obliczenia potrzebne do simulinka
-regulatory_ciagle % uruchomienie skryptu regulatory_ciagle.m
+statyzm=0.02*omega_n
+regulatory % uruchomienie skryptu regulatory.m
 
-%% Regulatory dyskretne
-
-%% Przekształtnik tyrystorowy
