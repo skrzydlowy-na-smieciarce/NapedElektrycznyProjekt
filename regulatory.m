@@ -9,8 +9,7 @@ beta=2*tau0;
 kz=1/Y;
 
 %% Przekształtnik tyrystorowy
-Kp=kz;
-Gprzeksztaltnika=tf(Kp, [beta, 1])
+Gprzeksztaltnika=tf(kz, [beta, 1])
 
 
 %% Parametry regulatora prądu PI
@@ -23,7 +22,7 @@ Gpradu=tf([KRi*TRi KRi], [TRi 0])
 Komega=Mn/(psi_en*kz*Kt*statyzm);
 
 %% Parametry regulatora predkości PI
-Komega=J/(2*Kt*kz*beta*psi_en)
+Komega=J/(2*Kt*kz*beta*psi_en)/10
 Tr_pred=4*beta;
 Gpred=tf([Komega*Tr_pred Komega], [Tr_pred 0])
 

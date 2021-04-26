@@ -31,6 +31,7 @@ Kp=0.15*Un;
 J=10*Js; %[kgm2]
 tau0=3.3*10^-3;
 
+
 %% Model silnika (transmitancje)
 % model_silnika
 
@@ -42,4 +43,5 @@ tau0=3.3*10^-3;
 statyzm=0.02*omega_n
 regulatory % uruchomienie skryptu regulatory.m
 
-
+%% Inne
+u_z0 = lambda*In/kz
