@@ -42,3 +42,4 @@ tau0=3.3*10^-3;
 statyzm=0.02*omega_n
 regulatory % uruchomienie skryptu regulatory.m
 
+
